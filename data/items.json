@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "name": "Onion",
+        "category": "vegetable",
+        "container": "none",
+        "volume":1,
+        "weight": 1,
+        "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 2,
+        "name": "Tomato",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 0.8,
+        "weight": 0.8,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 3,
+        "name": "Watermelon",
+        "category": "fruit",
+        "container": "none",
+        "volume": 15,
+        "weight": 15,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 4,
+        "name": "Chicken Breast",
+        "category": "meat",
+        "container": "form",
+        "volume": 2,
+        "weight": 2,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 5,
+        "name": "Salmon Fillet",
+        "category": "seafood",
+        "container": "form",
+        "volume": 2,
+        "weight": 2,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 6,
+        "name": "Milk",
+        "category": "dairy",
+        "container": "plastic",
+        "volume": 10,
+        "weight": 10,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 7,
+        "name": "Pizza",
+        "category": "frozen",
+        "container": "carton",
+        "volume": 3,
+        "weight": 2,
+        "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 8,
+        "name": "Coke - 350ml",
+        "category": "beverage",
+        "container": "metal",
+        "volume": 1,
+        "weight": 1,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 9,
+        "name": "Dinner Roles - 6pc",
+        "category": "baked",
+        "container": "plastic",
+        "volume": 4,
+        "weight": 1,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 10,
+        "name": "Potato Chips",
+        "category": "snack",
+        "container": "plastic",
+        "volume": 3,
+        "weight": 1,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 11,
+        "name": "Olive Oil - 700ml",
+        "category": "other_food",
+        "container": "glass",
+        "volume": 5,
+        "weight": 5,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 12,
+        "name": "Aluminum Foil",
+        "category": "kitchen",
+        "container": "carton",
+        "volume": 1,
+        "weight": 0.5,
+        "rigidity": 3,
+        "image": ""
+    },
+    {
+        "id": 13,
+        "name": "Hand Soap",
+        "category": "personal",
+        "container": "plastic",
+        "volume": 1.5,
+        "weight": 1.5,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 14,
+        "name": "Toilet Paper - 12 rolls",
+        "category": "cleaning",
+        "container": "plastic",
+        "volume": 40,
+        "weight": 5,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 15,
+        "name": "Magazine",
+        "category": "other_nonfood",
+        "container": "none",
+        "volume": 0.5,
+        "weight": 0.3,
+        "rigidity": 2,
+        "image": ""
+    }
+]
