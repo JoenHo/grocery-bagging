@@ -1,7 +1,17 @@
-import numpy as np
+import json
+import os.path
+
 
 def read_input_file():
-    print("modify function here")
+    # Get the json file path
+    my_path = os.path.abspath(os.path.dirname(__file__))
+    path = os.path.join(my_path, "../data/items.json")
+
+    # Open file and get items
+    with open(path, 'r') as f:
+        items = json.load(f)
+
+    return items
 
 
 def select_items():
@@ -10,7 +20,18 @@ def select_items():
 
 def main():
     # Read Input File
-    read_input_file()
+    items = read_input_file()
+
+    # e.g. Display all the items
+    for item in items:
+        print ('\033[33m' + str(item['id']) + '\033[0m', item['name'])
+
+    # e.g. if the user choose vegetable category, display the items of
+    # vegetable
+    print('\033[1;34m' + "Vegetable:" + '\033[1;34m')
+    for item in items:
+        if item['category'] == 'vegetable':
+            print ('\033[33m' + str(item['id']) + '\033[0m', item['name'])
 
     # Ask User to Select Items
     select_items()
