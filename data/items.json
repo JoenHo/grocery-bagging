@@ -33,7 +33,7 @@
         "id": 4,
         "name": "Chicken Breast",
         "category": "meat",
-        "container": "form",
+        "container": "foam",
         "volume": 2,
         "weight": 2,
         "rigidity": 2,
@@ -43,7 +43,7 @@
         "id": 5,
         "name": "Salmon Fillet",
         "category": "seafood",
-        "container": "form",
+        "container": "foam",
         "volume": 2,
         "weight": 2,
         "rigidity": 2,
@@ -147,6 +147,106 @@
         "volume": 0.5,
         "weight": 0.3,
         "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 16,
+        "name": "Potatoes",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 1.5,
+        "weight": 1.5,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 17,
+        "name": "Apple",
+        "category": "fruit",
+        "container": "none",
+        "volume": 1,
+        "weight": 1,
+        "rigidity": 3,
+        "image": ""
+    },
+    {
+        "id": 18,
+        "name": "Bread",
+        "category": "baked",
+        "container": "plastic",
+        "volume": 8,
+        "weight": 1,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 19,
+        "name": "Ice Cream",
+        "category": "frozen",
+        "container": "carton",
+        "volume": 2,
+        "weight": 2,
+        "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 20,
+        "name": "Beef",
+        "category": "meat",
+        "container": "foam",
+        "volume": 3,
+        "weight": 2,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 21,
+        "name": "Popcorn",
+        "category": "snack",
+        "container": "plastic",
+        "volume": 3,
+        "weight": 0.3,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 22,
+        "name": "Plastic Wrap",
+        "category": "kitchen",
+        "container": "carton",
+        "volume": 3,
+        "weight": 1,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 23,
+        "name": "Shampoo",
+        "category": "personal",
+        "container": "plastic",
+        "volume": 8,
+        "weight": 8,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 24,
+        "name": "Detergent",
+        "category": "cleaning",
+        "container": "plastic",
+        "volume": 15,
+        "weight": 15,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 25,
+        "name": "Vitamins",
+        "category": "other_nonfood",
+        "container": "plastic",
+        "volume": 0.5,
+        "weight": 0.3,
+        "rigidity": 4,
         "image": ""
     }
 ]
