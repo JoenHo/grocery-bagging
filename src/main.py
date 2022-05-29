@@ -27,7 +27,7 @@ def get_item_table(items):
     table.add_column("#", header_style="bold yellow", justify="center", style="yellow")
     table.add_column("Item Name", header_style="bold", justify="left")
     table.add_column("Category", header_style="bold", justify="center")
-    table.add_column("Container Material", header_style="bold", justify="center")
+    table.add_column("Container Type", header_style="bold", justify="center")
     table.add_column("Volume ×🧅", header_style="bold", justify="center")
     table.add_column("Weight ×🧅", header_style="bold", justify="center")
     table.add_column("Rigidity (1-5)", header_style="bold", justify="center")
@@ -43,6 +43,9 @@ def get_item_table(items):
         weight = str(item.weight)
         rigidity = str(item.rigidity)
         table.add_row(item_id, name, category, container, volume, weight, rigidity)
+    table.add_row()
+    table.add_row("[orange4]0[/orange4]", "[orange4]Return to Previous Menu[/orange4]")
+    table.row_styles="b"
 
     return table
 
@@ -60,9 +63,9 @@ def get_selected_items(items):
         name = item[0].name
         quantity = str(item[1])
         table.add_row(item_id, name, quantity)
-
+    table.row_styles="b"
     table.caption_style = "bold"
-    table.caption = "You have selected [b][cyan]" + str(len(items)) + "[/cyan][/b] items!"
+    table.caption = "You have selected [cyan]" + str(len(items)) + "[/cyan] items!"
 
     return table
 
@@ -70,28 +73,34 @@ def get_selected_items(items):
 def main_menu():
     table = Table(title="WELCOME TO GROCERY BAGGING PROGRAM", title_style="bold reverse steel_blue1", min_width=45)
     table.add_column("#", header_style="bold yellow", justify="center", style="yellow")
-    table.add_column("MENU", header_style="bold", justify="left")
+    table.add_column("MENU OPTIONS", header_style="bold", justify="left")
     table.box = box.HORIZONTALS
-    menu_list = ["Select Items", "Start Bagging", "Exit"]
+    menu_list = ["Select Items", "Start Bagging"]
 
     for i, option in enumerate(menu_list):
-        no = "[b][yellow]" + str(i + 1) + "[/yellow][b]"
+        no = "[yellow]" + str(i + 1) + "[/yellow]"
         table.add_row(no, option)
+    table.add_row()
+    table.add_row("[orange4]0[/orange4]", "[orange4]Exit[/orange4]")
+    table.row_styles="b"
     
     return table
 
 
 def sub_menu():
-    table = Table(title="MENU OPTIONS", title_style="bold reverse steel_blue1", min_width=45)
+    table = Table(title="MENU", title_style="bold reverse steel_blue1", min_width=45)
     table.add_column("#", header_style="bold yellow", justify="center", style="yellow")
-    table.add_column("MENU", header_style="bold", justify="left")
+    table.add_column("MENU OPTIONS", header_style="bold", justify="left")
     table.box = box.HORIZONTALS
     menu_list = ["Select From: All Categories", "Select From: Vegetables & Fruits", "Select From: Meat & Seafood", "Select From: Frozen",
-     "Select From: Other Foods", "Select From: Household Products", "Clear Selected Items" ,"Return to Main Menu"]
+     "Select From: Other Foods", "Select From: Household Products", "Clear All Selected Items"]
 
     for i, option in enumerate(menu_list):
-        no = "[b][yellow]" + str(i + 1) + "[/yellow][b]"
+        no = "[yellow]" + str(i + 1) + "[/yellow]"
         table.add_row(no, option)
+    table.add_row()
+    table.add_row("[orange4]0[/orange4]", "[orange4]Return to Main Menu[/orange4]")
+    table.row_styles="b"
     
     return table
 
@@ -112,7 +121,7 @@ def display_main_menu(bg:Bagger):
                 display_sub_menu(bg)
             elif(op_no == 2):
                 display_start_bagging(bg)
-            elif(op_no == 3):
+            elif(op_no == 0):
                 break
 
         except ValueError:
@@ -151,7 +160,7 @@ def display_sub_menu(bg:Bagger):
                 select_items(bg, items)
             elif(op_no == 7):
                 bg.selected.clear()
-            elif(op_no == 8):
+            elif(op_no == 0):
                 break
 
         except ValueError:
@@ -174,7 +183,7 @@ def select_items(bg:Bagger, item_list):
             console.print(Columns([Panel(item_tb, expand=True), Panel(cart, expand=True)]), justify="center")
 
             # ask user to add items
-            item_no = int(console.input("\n** Enter 0 to Stop Selecting **\nEnter Item # : "))
+            item_no = int(console.input("\nEnter Item # : "))
             if(item_no == 0): break
             item_qty = int(console.input("Enter Quantity: "))
             if(item_qty < 0): raise ValueError()
