@@ -20,3 +20,47 @@ class Bagger:
 
     def get_selected(self):
         return self.selected
+
+    def sorting(self, item_list):
+        # Return sorted item list
+        # Sort: point =  0.5 * weight + 0.5 * volume + rigidity
+        print()
+
+    def meat_seafood_bagging(self, meat_seafood_list):
+        total_weight, total_volume = 0, 0
+
+        self.sorting(meat_seafood_list)
+
+        print('\nStart bagging meat and seafood items')
+        for item in meat_seafood_list:
+            total_volume += (item[0].volume * item[1])
+            total_weight += (item[0].weight * item[1])
+            print(f"name: {item[0].name}")
+            print(f"quantity: {item[1]}")
+
+        volume_bag = int(total_volume / self.BAG_VOLUME_CAPACITY) + (
+                    total_volume %
+                    self.BAG_VOLUME_CAPACITY > 0)
+        weight_bag = int(total_weight / self.BAG_WEIGHT_CAPACITY) + (
+                    total_weight %
+                    self.BAG_WEIGHT_CAPACITY > 0)
+        estimate_bag = max(volume_bag, weight_bag)
+        print(f"Estimated bags: {estimate_bag}")
+
+    def frozen_bagging(self, frozen_list):
+        print('\nStart bagging frozen items')
+        for item in frozen_list:
+            print(f"name: {item[0].name}")
+            print(f"quantity: {item[1]}")
+
+    def food_bagging(self, food_list):
+        print('\nStart bagging food items')
+        for item in food_list:
+            print(f"name: {item[0].name}")
+            print(f"quantity: {item[1]}")
+
+    def non_food_bagging(self, non_food_list):
+        print('\nStart bagging non-food items')
+        for item in non_food_list:
+            print(f"name: {item[0].name}")
+            print(f"quantity: {item[1]}")

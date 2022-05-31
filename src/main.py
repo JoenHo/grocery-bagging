@@ -167,52 +167,6 @@ def display_sub_menu(bg:Bagger):
             console.print("Invalid Input", style="red")
 
 
-def sorting(item_list):
-    # Return sorted item list
-    # Sort: point =  0.5 * weight + 0.5 * volume + rigidity
-    print()
-
-
-def meat_seafood_bagging(meat_seafood_list, bg:Bagger):
-    total_weight = 0
-    total_volume = 0
-
-    print('\nStart bagging meat and seafood items')
-    for item in meat_seafood_list:
-        total_volume += (item[0].volume * item[1])
-        total_weight += (item[0].weight * item[1])
-        print(f"name: {item[0].name}")
-        print(f"quantity: {item[1]}")
-
-    volume_bag = int(total_volume / bg.BAG_VOLUME_CAPACITY) + (total_volume %
-                                                    bg.BAG_VOLUME_CAPACITY > 0)
-    weight_bag = int(total_weight / bg.BAG_WEIGHT_CAPACITY) + (total_weight %
-                                                    bg.BAG_WEIGHT_CAPACITY > 0)
-    estimate_bag = max(volume_bag, weight_bag)
-    print(f"Estimated bags: {estimate_bag}")
-
-
-def frozen_bagging(frozen_list, bg:Bagger):
-    print('\nStart bagging frozen items')
-    for item in frozen_list:
-        print(f"name: {item[0].name}")
-        print(f"quantity: {item[1]}")
-
-
-def food_bagging(food_list, bg:Bagger):
-    print('\nStart bagging food items')
-    for item in food_list:
-        print(f"name: {item[0].name}")
-        print(f"quantity: {item[1]}")
-
-
-def non_food_bagging(non_food_list, bg:Bagger):
-    print('\nStart bagging non-food items')
-    for item in non_food_list:
-        print(f"name: {item[0].name}")
-        print(f"quantity: {item[1]}")
-
-
 def display_start_bagging(bg:Bagger):
     item: Bagger.selected
     items = bg.get_selected()
@@ -236,13 +190,13 @@ def display_start_bagging(bg:Bagger):
             non_food_list.append(item)
 
     if len(meat_seafood_list):
-        meat_seafood_bagging(meat_seafood_list, bg)
+        bg.meat_seafood_bagging(meat_seafood_list)
     if len(frozen_list):
-        frozen_bagging(frozen_list, bg)
+        bg.frozen_bagging(frozen_list)
     if len(food_list):
-        food_bagging(food_list, bg)
+        bg.food_bagging(food_list)
     if len(non_food_list):
-        non_food_bagging(non_food_list, bg)
+        bg.non_food_bagging(non_food_list)
 
 
 def select_items(bg:Bagger, item_list):
