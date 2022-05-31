@@ -6,6 +6,8 @@ class Bagger:
     all_items : List[Item] = []
     selected = []
     bags = []
+    BAG_VOLUME_CAPACITY = 50
+    BAG_WEIGHT_CAPACITY = 30
 
     def __init__(self, items):
         self.all_items = items
