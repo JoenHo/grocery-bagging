@@ -59,9 +59,9 @@ def get_selected_items(items):
 
     item : Bagger.selected
     for item in items:
-        item_id = str(item[0].id)
-        name = item[0].name
-        quantity = str(item[1])
+        item_id = str(item.id)
+        name = item.name
+        quantity = str(items[item])
         table.add_row(item_id, name, quantity)
     table.row_styles="b"
     table.caption_style = "bold"
