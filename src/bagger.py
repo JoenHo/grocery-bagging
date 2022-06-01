@@ -75,14 +75,14 @@ class Bagger:
 
     def grouping_items(self):
         item: Bagger.selected
-        items = bg.get_selected()
+        items = self.selected
 
         meat_seafood_list = []
         frozen_list = []
         food_list = []
         non_food_list = []
 
-        for item in items:
+        for item in items.items():
             if item[0].category == 'meat' or item[0].category == 'seafood':
                 meat_seafood_list.append(item)
             elif item[0].category == 'frozen':
@@ -96,13 +96,13 @@ class Bagger:
                 non_food_list.append(item)
 
         if len(meat_seafood_list):
-            bg.meat_seafood_bagging(meat_seafood_list)
+            self.meat_seafood_bagging(meat_seafood_list)
         if len(frozen_list):
-            bg.frozen_bagging(frozen_list)
+            self.frozen_bagging(frozen_list)
         if len(food_list):
-            bg.food_bagging(food_list)
+            self.food_bagging(food_list)
         if len(non_food_list):
-            bg.non_food_bagging(non_food_list)
+            self.non_food_bagging(non_food_list)
 
     def start_bagging(self, op):
         
