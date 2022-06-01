@@ -4,7 +4,7 @@ from typing import List
 class Bagger:
 
     all_items : List[Item] = []
-    selected = []
+    selected = {}
     bags = []
     BAG_VOLUME_CAPACITY = 50
     BAG_WEIGHT_CAPACITY = 30
@@ -16,7 +16,11 @@ class Bagger:
         return self.all_items
 
     def add_to_selected(self, item : Item, quantity):
-        self.selected.append([item, quantity])
+        if item in self.selected:
+            q = self.selected[item] + quantity
+        else:
+            q = quantity
+        self.selected[item] = q
 
     def get_selected(self):
         return self.selected
