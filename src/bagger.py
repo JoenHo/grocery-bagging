@@ -103,3 +103,9 @@ class Bagger:
             bg.food_bagging(food_list)
         if len(non_food_list):
             bg.non_food_bagging(non_food_list)
+
+    def start_bagging(self, op):
+        
+        if op == 1: # Passive Constraints Enforcement
+            self.grouping_items()
+            
