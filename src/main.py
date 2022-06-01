@@ -190,6 +190,24 @@ def display_start_bagging(bg:Bagger):
             console.print("Invalid Input", style="red")
 
 
+def display_result(bg:Bagger):
+    console = Console()
+
+    while(True):
+        try:
+            # display result
+            console.clear()
+            print("PRINT RESULT (UPDATE LATER)")
+            
+            # ask user to add items
+            op_no = int(console.input("\nSelect 0 to go back: "))
+            if(op_no == 0):
+                break
+
+        except ValueError:
+            console.print("Invalid Input", style="red")
+
+
 def select_items(bg:Bagger, item_list):
     
     console = Console()
