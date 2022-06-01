@@ -207,6 +207,52 @@ def display_start_bagging(bg:Bagger):
             console.print("Invalid Input", style="red")
 
 
+def bag_table(bag, no):
+    table = Table(title=f"BAG #{no}", title_style="bold reverse light_salmon1", width=35)
+    table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+    table.box = box.HORIZONTALS
+
+    total_vol, total_wei = 0, 0
+    for item in bag[0]:
+        table.add_row(item.name)
+        total_vol += item.volume
+        total_wei += item.weight
+    table.row_styles="b"
+    table.show_header=False
+    table.caption_style = "bold"
+    table.caption = f"Volume:{total_vol} 🧅 Weight:{round(total_wei,2)} 🧅"
+    
+    return table
+
+
+def no_bag_table(outside):
+    table = Table(title=f"NO BAG", title_style="bold reverse pale_violet_red1", width=35)
+    table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+    table.box = box.HORIZONTALS
+
+    total_vol, total_wei = 0, 0
+    for item in outside:
+        table.add_row(item.name)
+        total_vol += item.volume
+        total_wei += item.weight
+    table.row_styles="b"
+    table.show_header=False
+    table.caption_style = "bold"
+    table.caption = f"Volume:{total_vol} 🧅 Weight:{round(total_wei,2)} 🧅"
+    
+    return table
+
+
+def format_bags(bg:Bagger):
+    panels = []
+    for i, bag in enumerate(bg.bags):
+        panels.append(Panel(bag_table(bag, i+1), expand=False))
+    
+    panels.append(Panel(no_bag_table(bg.outside), expand=False))
+
+    return panels
+
+
 def display_result(bg:Bagger):
     console = Console()
 
@@ -214,8 +260,7 @@ def display_result(bg:Bagger):
         try:
             # display result
             console.clear()
-            print("PRINT RESULT (UPDATE LATER)")
-            
+            console.print(Columns(format_bags(bg)), justify="center")
             # ask user to add items
             op_no = int(console.input("\nSelect 0 to go back: "))
             if(op_no == 0):
@@ -259,9 +304,9 @@ def main():
     bg = Bagger(items)
 
     # Display Main Menu
-    display_main_menu(bg)
+    # display_main_menu(bg)
 
-    # # Mock that user selected item
+    # Mock that user selected item
     # item1 = 1
     # item2 = 3
     # item3 = 23
@@ -277,6 +322,12 @@ def main():
     # bg.add_to_selected(selected, 1)
     # selected = next((x for x in items if x.id == item5), None)
     # bg.add_to_selected(selected, 2)
+
+    mock_selected = [[8,3],[13,2],[15,1],[23,1],[17,1],[3,3],[20,2],[18,1],[19,3],[21,1],[14,2],[5,1],[1,5],[2,4],[6,1],[7,2],[9,1],[21,1],[22,2],[12,1],[16,4],[25,1],[18,2]]
+    for item in mock_selected:
+        bg.add_to_selected(next((x for x in items if x.id == item[0]), None), item[1])
+
+    display_main_menu(bg)
 
 
     # Ask User to Select Items
