@@ -1,13 +1,23 @@
 from item import Item
 from typing import List
 
+# --- CONSTANT --- #
+BAG_VOLUME_CAPACITY = 50
+BAG_WEIGHT_CAPACITY = 30
+
+W_WEIGHT = 0.5
+W_VOLUME = 0.5
+W_RIGIDITY = 0.8
+W_CONTAINER = 0.3
+# ---------------- #
+
+
 class Bagger:
 
     all_items : List[Item] = []
     selected = {}
     bags = []
-    BAG_VOLUME_CAPACITY = 50
-    BAG_WEIGHT_CAPACITY = 30
+    
 
     def __init__(self, items):
         self.all_items = items
