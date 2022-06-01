@@ -278,7 +278,6 @@ def main():
     # selected = next((x for x in items if x.id == item5), None)
     # bg.add_to_selected(selected, 2)
 
-    display_start_bagging(bg)
 
     # Ask User to Select Items
 
