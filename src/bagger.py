@@ -51,12 +51,12 @@ class Bagger:
             print(f"name: {item[0].name}")
             print(f"quantity: {item[1]}")
 
-        volume_bag = int(total_volume / self.BAG_VOLUME_CAPACITY) + (
+        volume_bag = int(total_volume / BAG_VOLUME_CAPACITY) + (
                     total_volume %
-                    self.BAG_VOLUME_CAPACITY > 0)
-        weight_bag = int(total_weight / self.BAG_WEIGHT_CAPACITY) + (
+                    BAG_VOLUME_CAPACITY > 0)
+        weight_bag = int(total_weight / BAG_WEIGHT_CAPACITY) + (
                     total_weight %
-                    self.BAG_WEIGHT_CAPACITY > 0)
+                    BAG_WEIGHT_CAPACITY > 0)
         estimate_bag = max(volume_bag, weight_bag)
         print(f"Estimated bags: {estimate_bag}")
 
@@ -90,18 +90,19 @@ class Bagger:
         food_list = []
         non_food_list = []
 
-        for item in items.items():
-            if item[0].category == 'meat' or item[0].category == 'seafood':
-                meat_seafood_list.append(item)
-            elif item[0].category == 'frozen':
-                frozen_list.append(item)
-            elif item[0].category == 'vegetable' or item[0].category == 'fruit' \
-                    or item[0].category == 'dairy' or item[0].category == \
-                    'beverage' or item[0].category == 'snack' or item[0].category\
+        for item, quantity in items.items():
+            item_info = [item, quantity]   # item, quantity
+            if item.category == 'meat' or item.category == 'seafood':
+                meat_seafood_list.append(item_info)
+            elif item.category == 'frozen':
+                frozen_list.append(item_info)
+            elif item.category == 'vegetable' or item.category == 'fruit' \
+                    or item.category == 'dairy' or item.category == \
+                    'beverage' or item.category == 'snack' or item.category\
                     == 'other_food':
-                food_list.append(item)
+                food_list.append(item_info)
             else:
-                non_food_list.append(item)
+                non_food_list.append(item_info)
 
         if len(meat_seafood_list):
             self.meat_seafood_bagging(meat_seafood_list)
