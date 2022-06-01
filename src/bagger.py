@@ -72,3 +72,34 @@ class Bagger:
         for item in non_food_list:
             print(f"name: {item[0].name}")
             print(f"quantity: {item[1]}")
+
+    def grouping_items(self):
+        item: Bagger.selected
+        items = bg.get_selected()
+
+        meat_seafood_list = []
+        frozen_list = []
+        food_list = []
+        non_food_list = []
+
+        for item in items:
+            if item[0].category == 'meat' or item[0].category == 'seafood':
+                meat_seafood_list.append(item)
+            elif item[0].category == 'frozen':
+                frozen_list.append(item)
+            elif item[0].category == 'vegetable' or item[0].category == 'fruit' \
+                    or item[0].category == 'dairy' or item[0].category == \
+                    'beverage' or item[0].category == 'snack' or item[0].category\
+                    == 'other_food':
+                food_list.append(item)
+            else:
+                non_food_list.append(item)
+
+        if len(meat_seafood_list):
+            bg.meat_seafood_bagging(meat_seafood_list)
+        if len(frozen_list):
+            bg.frozen_bagging(frozen_list)
+        if len(food_list):
+            bg.food_bagging(food_list)
+        if len(non_food_list):
+            bg.non_food_bagging(non_food_list)
