@@ -105,6 +105,23 @@ def sub_menu():
     return table
 
 
+def bagging_menu():
+    table = Table(title="MENU", title_style="bold reverse steel_blue1", min_width=45)
+    table.add_column("#", header_style="bold yellow", justify="center", style="yellow")
+    table.add_column("BAGGING METHOD OPTIONS", header_style="bold", justify="left")
+    table.box = box.HORIZONTALS
+    menu_list = ["Passive Constraints Enforcement"]
+
+    for i, option in enumerate(menu_list):
+        no = "[yellow]" + str(i + 1) + "[/yellow]"
+        table.add_row(no, option)
+    table.add_row()
+    table.add_row("[orange4]0[/orange4]", "[orange4]Return to Main Menu[/orange4]")
+    table.row_styles="b"
+    
+    return table
+
+
 def display_main_menu(bg:Bagger):
     console = Console()
     menu = main_menu()
