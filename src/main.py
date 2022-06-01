@@ -215,7 +215,6 @@ def select_items(bg:Bagger, item_list):
             item_no = int(console.input("\nEnter Item # : "))
             if(item_no == 0): break
             item_qty = int(console.input("Enter Quantity: "))
-            if(item_qty < 0): raise ValueError()
 
             # find item and put in the selected list
             selected = next((x for x in item_list if x.id == item_no), None)
