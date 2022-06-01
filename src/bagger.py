@@ -43,17 +43,29 @@ class Bagger:
         return self.selected
 
 
+    def calc_item_point(self, item : Item):
+        # W_CONTAINER * item.container
+        point = W_WEIGHT * item.weight + W_VOLUME * item.volume + W_RIGIDITY * item.rigidity
+        return point
+
+
     def sorting(self, item_list):
-        # Return sorted item list
-        # Sort: point =  0.5 * weight + 0.5 * volume + rigidity
-        print()
+
+        print("Before Sort")
+        for item in item_list:
+            print(f"Name: {item[0].name} Points: {item[2]}")
+
+        # sort item list by points in descending order 
+        item_list.sort(key=lambda x: x[2], reverse=True)
+
+        print(f"After Sort")
+        for item in item_list:
+            print(f"Name: {item[0].name} Points: {item[2]}")
 
 
     def meat_seafood_bagging(self, meat_seafood_list):
         total_weight, total_volume = 0, 0
-
-        self.sorting(meat_seafood_list)
-
+        
         print('\nStart bagging meat and seafood items')
         for item in meat_seafood_list:
             total_volume += (item[0].volume * item[1])
@@ -101,7 +113,10 @@ class Bagger:
         non_food_list = []
 
         for item, quantity in items.items():
-            item_info = [item, quantity]   # item, quantity
+            # calculate item points and assign all related information to array
+            item_info = [item, quantity, self.calc_item_point(item)]   # [item, quantity, point]
+
+            # classify item by category
             if item.category == 'meat' or item.category == 'seafood':
                 meat_seafood_list.append(item_info)
             elif item.category == 'frozen':
@@ -113,7 +128,8 @@ class Bagger:
                 food_list.append(item_info)
             else:
                 non_food_list.append(item_info)
-
+        
+        # bagging by group
         if len(meat_seafood_list):
             self.meat_seafood_bagging(meat_seafood_list)
         if len(frozen_list):
