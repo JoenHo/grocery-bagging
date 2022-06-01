@@ -20,7 +20,11 @@ class Bagger:
             q = self.selected[item] + quantity
         else:
             q = quantity
+        # add / update selected set
         self.selected[item] = q
+        if self.selected[item] <= 0:
+        # remove item from set
+            self.selected.pop(item)
 
     def get_selected(self):
         return self.selected
