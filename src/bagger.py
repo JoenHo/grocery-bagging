@@ -12,8 +12,10 @@ class Bagger:
     def __init__(self, items):
         self.all_items = items
 
+
     def get_all_items(self):
         return self.all_items
+
 
     def add_to_selected(self, item : Item, quantity):
         if item in self.selected:
@@ -26,13 +28,16 @@ class Bagger:
         # remove item from set
             self.selected.pop(item)
 
+
     def get_selected(self):
         return self.selected
+
 
     def sorting(self, item_list):
         # Return sorted item list
         # Sort: point =  0.5 * weight + 0.5 * volume + rigidity
         print()
+
 
     def meat_seafood_bagging(self, meat_seafood_list):
         total_weight, total_volume = 0, 0
@@ -55,11 +60,13 @@ class Bagger:
         estimate_bag = max(volume_bag, weight_bag)
         print(f"Estimated bags: {estimate_bag}")
 
+
     def frozen_bagging(self, frozen_list):
         print('\nStart bagging frozen items')
         for item in frozen_list:
             print(f"name: {item[0].name}")
             print(f"quantity: {item[1]}")
+
 
     def food_bagging(self, food_list):
         print('\nStart bagging food items')
@@ -72,6 +79,7 @@ class Bagger:
         for item in non_food_list:
             print(f"name: {item[0].name}")
             print(f"quantity: {item[1]}")
+
 
     def grouping_items(self):
         item: Bagger.selected
@@ -104,8 +112,10 @@ class Bagger:
         if len(non_food_list):
             self.non_food_bagging(non_food_list)
 
+
     def start_bagging(self, op):
         
         if op == 1: # Passive Constraints Enforcement
             self.grouping_items()
             
+
