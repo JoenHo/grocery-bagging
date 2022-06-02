@@ -56,8 +56,8 @@ class Bagger:
         for item in item_list:
             print(f"Name: {item[0].name} Points: {item[2]}")
 
-        # sort item list by points in ascending order
-        item_list.sort(key=lambda x: x[2])
+        # sort item list by points in descending order
+        item_list.sort(key=lambda x: x[2], reverse=True)
 
         print(f"After Sort")
         for item in item_list:
@@ -86,6 +86,12 @@ class Bagger:
         for item in item_list:
             # if item is larger and heavier than limit capacity of bag
             if item[0].weight > BAG_WEIGHT_CAPACITY or item[0].volume > BAG_VOLUME_CAPACITY:
+                # Calculate the bag number that supposed with the item
+                reduced_bag = self.estimate_num_bags([item])
+                # Reduce the bag number and the bags list
+                num_bags -= reduced_bag
+                for _ in range(reduced_bag):
+                    bags.pop(0)
                 # leave it out
                 for _ in range(item[1]):
                     self.outside.append(item[0])
@@ -94,9 +100,9 @@ class Bagger:
             # until item quantity becomes zero find a bag to put
             while item[1] > 0:
                 # if possible to put in this bag
-                if bags[i][1] > item[0].volume or bags[i][2] > item[0].weight:
+                if bags[i][1] > item[0].volume and bags[i][2] > item[0].weight:
                     # place item into bag
-                    bags[i][0].append(item[0])
+                    bags[i][0].insert(0, item[0])
                     # reduce bag space
                     bags[i][1] -= item[0].volume
                     bags[i][2] -= item[0].weight
@@ -108,7 +114,6 @@ class Bagger:
                     i+=1
                 else:
                     i = 0
-        
         self.bags += bags
 
 
