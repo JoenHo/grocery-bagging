@@ -2,7 +2,7 @@ from item import Item
 from typing import List
 
 # --- CONSTANT --- #
-BAG_VOLUME_CAPACITY = 30
+BAG_VOLUME_CAPACITY = 17
 BAG_WEIGHT_CAPACITY = 30
 
 W_WEIGHT = 0.5
@@ -68,8 +68,9 @@ class Bagger:
         total_weight, total_volume = 0, 0
 
         for item in item_list:
-            total_volume += (item[0].volume * item[1])
-            total_weight += (item[0].weight * item[1])
+            if(item[0].volume <= BAG_VOLUME_CAPACITY and item[0].weight <= BAG_WEIGHT_CAPACITY):
+                total_volume += (item[0].volume * item[1])
+                total_weight += (item[0].weight * item[1])
 
         volume_bag = int(total_volume / BAG_VOLUME_CAPACITY) + (
                     total_volume %
@@ -80,25 +81,26 @@ class Bagger:
         return max(volume_bag, weight_bag)
 
 
-    def put_items_into_bags(self, item_list, num_bags): # item_list: list of [Item, quantity, points]
+    def put_items_into_bags(self, item_list, num_bags, type): # item_list: list of [Item, quantity, points]
         i = 0
-        bags = [[[], BAG_VOLUME_CAPACITY, BAG_WEIGHT_CAPACITY] for _ in range(num_bags)]    # List of [List of [Item], volume left, weight left]
+        bags = [[[], BAG_VOLUME_CAPACITY, BAG_WEIGHT_CAPACITY, type] for _ in range(num_bags)]    # List of [List of [Item], volume left, weight left, type]
         for item in item_list:
             # if item is larger and heavier than limit capacity of bag
             if item[0].weight > BAG_WEIGHT_CAPACITY or item[0].volume > BAG_VOLUME_CAPACITY:
-                # Calculate the bag number that supposed with the item
-                reduced_bag = self.estimate_num_bags([item])
-                # Reduce the bag number and the bags list
-                num_bags -= reduced_bag
-                for _ in range(reduced_bag):
-                    bags.pop(0)
                 # leave it out
                 for _ in range(item[1]):
                     self.outside.append(item[0])
                 continue
                 
             # until item quantity becomes zero find a bag to put
+            count = 0
             while item[1] > 0:
+                count += 1
+                if(count >= len(bags)):
+                    bags.append([[], BAG_VOLUME_CAPACITY, BAG_WEIGHT_CAPACITY, type])
+                    num_bags += 1
+                    count = 0
+
                 # if possible to put in this bag
                 if bags[i][1] > item[0].volume and bags[i][2] > item[0].weight:
                     # place item into bag
@@ -108,6 +110,8 @@ class Bagger:
                     bags[i][2] -= item[0].weight
                     # reduce quantity by 1
                     item[1] -= 1
+                    # reset count to zero
+                    count = 0
                 
                 # move to next bag
                 if i < num_bags -1:
@@ -146,7 +150,7 @@ class Bagger:
             print(f"quantity: {item[1]}")
 
 
-    def process_items(self, item_list):
+    def process_items(self, item_list, type):
         # sort item list
         self.sorting_items(item_list)
 
@@ -154,7 +158,7 @@ class Bagger:
         num_bags = self.estimate_num_bags(item_list)
 
         # put items to bags in order
-        self.put_items_into_bags(item_list, num_bags)
+        self.put_items_into_bags(item_list, num_bags, type)
 
 
     def grouping_items(self):
@@ -184,8 +188,8 @@ class Bagger:
                 non_food_list.append(item_info)
         
         # bagging by group
-        for group in [food_list, meat_seafood_list, frozen_list, non_food_list]:
-            self.process_items(group)
+        for group in [[food_list, "food"], [meat_seafood_list, "meat&seafood"], [frozen_list, "frozen"], [non_food_list, "non-food"]]:
+            self.process_items(group[0], group[1])
 
         # if len(meat_seafood_list):
         #     self.meat_seafood_bagging(meat_seafood_list)

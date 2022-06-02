@@ -208,9 +208,22 @@ def display_start_bagging(bg:Bagger):
 
 
 def bag_table(bag, no):
-    table = Table(title=f"BAG #{no}", title_style="bold reverse light_salmon1", width=35)
-    table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
-    table.box = box.HORIZONTALS
+    if bag[3] == "food":
+        table = Table(title=f"BAG #{no} 🍎🥦🥛", title_style="bold reverse light_salmon1", width=35)
+        table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+        table.box = box.HORIZONTALS
+    elif bag[3] == "meat&seafood":
+        table = Table(title=f"BAG #{no} 🥩🍤", title_style="bold reverse honeydew2", width=35)
+        table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+        table.box = box.HORIZONTALS
+    elif bag[3] == "frozen":
+        table = Table(title=f"BAG #{no} 🧊", title_style="bold reverse khaki1", width=35)
+        table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+        table.box = box.HORIZONTALS
+    elif bag[3] == "non-food":
+        table = Table(title=f"BAG #{no} 🏠", title_style="bold reverse light_goldenrod3", width=35)
+        table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
+        table.box = box.HORIZONTALS
 
     total_vol, total_wei = 0, 0
     for item in bag[0]:
@@ -248,7 +261,8 @@ def format_bags(bg:Bagger):
     for i, bag in enumerate(bg.bags):
         panels.append(Panel(bag_table(bag, i+1), expand=False))
     
-    panels.append(Panel(no_bag_table(bg.outside), expand=False))
+    if len(bg.outside) > 0: 
+        panels.append(Panel(no_bag_table(bg.outside), expand=False))
 
     return panels
 
@@ -324,6 +338,7 @@ def main():
     # bg.add_to_selected(selected, 2)
 
     mock_selected = [[8,3],[13,2],[15,1],[23,1],[17,1],[3,3],[20,2],[18,1],[19,3],[21,1],[14,2],[5,1],[1,5],[2,4],[6,1],[7,2],[9,1],[21,1],[22,2],[12,1],[16,4],[25,1],[18,2]]
+    # mock_selected = [[3,3], [10,2]]
     for item in mock_selected:
         bg.add_to_selected(next((x for x in items if x.id == item[0]), None), item[1])
 
