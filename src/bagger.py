@@ -96,9 +96,11 @@ class Bagger:
             count = 0
             while item[1] > 0:
                 count += 1
-                if(count >= len(bags)):
+                if(count > len(bags)):
+                    # add one more bag since no space for this item in existing bags
                     bags.append([[], BAG_VOLUME_CAPACITY, BAG_WEIGHT_CAPACITY, type])
                     num_bags += 1
+                    # reset count to zero
                     count = 0
 
                 # if possible to put in this bag
