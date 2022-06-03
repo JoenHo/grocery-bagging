@@ -210,19 +210,19 @@ def display_start_bagging(bg:Bagger):
 
 def bag_table(bag, no):
     if bag[3] == "food":
-        table = Table(title=f"BAG #{no} 🍎🥦🥛🍿", title_style="bold reverse pale_turquoise4", width=35)
+        table = Table(title=f"🍓🥦 BAG #{no} 🍪🥛", title_style="bold reverse light_goldenrod2", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
     elif bag[3] == "meat&seafood":
-        table = Table(title=f"BAG #{no} 🥩🐟", title_style="bold reverse honeydew2", width=35)
+        table = Table(title=f"🥩 BAG #{no} 🐟", title_style="bold reverse misty_rose3", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
     elif bag[3] == "frozen":
-        table = Table(title=f"BAG #{no} 🧊", title_style="bold reverse khaki1", width=35)
+        table = Table(title=f"BAG #{no} 🧊", title_style="bold reverse honeydew2", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
     elif bag[3] == "non-food":
-        table = Table(title=f"BAG #{no} 🏠", title_style="bold reverse light_goldenrod3", width=35)
+        table = Table(title=f"BAG #{no} 🏠", title_style="bold reverse khaki1", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
 
@@ -284,7 +284,7 @@ def display_result(bg:Bagger):
             if res == '0':
                 break
             else:
-                console.print(qa.ask_question(res), style="honeydew2")
+                console.print(qa.ask_question(res), style="cadet_blue")
         except ValueError:
             console.print("Invalid Input", style="red")
 
@@ -322,39 +322,14 @@ def main():
     # Create Bagger Instance
     bg = Bagger(items)
 
-    # Display Main Menu
-    # display_main_menu(bg)
-
-    # Mock that user selected item
-    # item1 = 1
-    # item2 = 3
-    # item3 = 23
-    # item4 = 20
-    # item5 = 7
-    # selected = next((x for x in items if x.id == item1), None)
-    # bg.add_to_selected(selected, 5)
-    # selected = next((x for x in items if x.id == item2), None)
-    # bg.add_to_selected(selected, 1)
-    # selected = next((x for x in items if x.id == item3), None)
-    # bg.add_to_selected(selected, 2)
-    # selected = next((x for x in items if x.id == item4), None)
-    # bg.add_to_selected(selected, 1)
-    # selected = next((x for x in items if x.id == item5), None)
-    # bg.add_to_selected(selected, 2)
-
+    # mock selected for testing
     mock_selected = [[8,3],[13,2],[15,1],[23,1],[17,1],[3,3],[20,2],[18,1],[19,3],[21,1],[14,2],[5,1],[1,5],[2,4],[6,1],[7,2],[9,1],[21,1],[22,2],[12,1],[16,4],[25,1],[18,2]]
     # mock_selected = [[3,3], [10,2]]
     for item in mock_selected:
         bg.add_to_selected(next((x for x in items if x.id == item[0]), None), item[1])
 
+    # Display Main Menu
     display_main_menu(bg)
-
-
-    # Ask User to Select Items
-
-    # Start Bagging
-
-    # Display Result
 
 
 if __name__ == '__main__':
