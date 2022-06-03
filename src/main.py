@@ -7,6 +7,7 @@ from rich.panel import Panel
 from rich.columns import Columns
 from bagger import Bagger
 from item import ItemDecoder, Item
+from qa import QA
 
 
 def read_input_file():
@@ -209,11 +210,11 @@ def display_start_bagging(bg:Bagger):
 
 def bag_table(bag, no):
     if bag[3] == "food":
-        table = Table(title=f"BAG #{no} 🍎🥦🥛", title_style="bold reverse light_salmon1", width=35)
+        table = Table(title=f"BAG #{no} 🍎🥦🥛🍿", title_style="bold reverse pale_turquoise4", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
     elif bag[3] == "meat&seafood":
-        table = Table(title=f"BAG #{no} 🥩🍤", title_style="bold reverse honeydew2", width=35)
+        table = Table(title=f"BAG #{no} 🥩🐟", title_style="bold reverse honeydew2", width=35)
         table.add_column("ITEM NAME", header_style="bold", justify="center", style="")
         table.box = box.HORIZONTALS
     elif bag[3] == "frozen":
@@ -268,18 +269,22 @@ def format_bags(bg:Bagger):
 
 
 def display_result(bg:Bagger):
+    qa = QA(bg)    
     console = Console()
+    console.clear()
 
+    # display result
+    console.print(Columns(format_bags(bg)), justify="center")
+    console.print('\nEnter 0 to go back')
+
+    # Q&A
     while(True):
         try:
-            # display result
-            console.clear()
-            console.print(Columns(format_bags(bg)), justify="center")
-            # ask user to add items
-            op_no = int(console.input("\nSelect 0 to go back: "))
-            if(op_no == 0):
+            res = console.input("\nAsk Question >> ")
+            if res == '0':
                 break
-
+            else:
+                console.print(qa.ask_question(res), style="honeydew2")
         except ValueError:
             console.print("Invalid Input", style="red")
 
