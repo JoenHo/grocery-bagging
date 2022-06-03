@@ -18,6 +18,7 @@ class Bagger:
     selected = {}
     bags = []
     outside = []
+    category_group = [['meat','seafood'],['frozen'],['vegetable','fruit','dairy','beverage','snack','baked','other_food'], ['kitchen','personal','cleaning','other_nonfood']]
     
 
     def __init__(self, items):
@@ -139,16 +140,13 @@ class Bagger:
             item_info = [item, quantity, self.calc_item_point(item)]   # [item, quantity, point]
 
             # classify item by category
-            if item.category == 'meat' or item.category == 'seafood':
+            if item.category in self.category_group[0]:
                 meat_seafood_list.append(item_info)
-            elif item.category == 'frozen':
+            elif item.category in self.category_group[1]:
                 frozen_list.append(item_info)
-            elif item.category == 'vegetable' or item.category == 'fruit' \
-                    or item.category == 'dairy' or item.category == \
-                    'beverage' or item.category == 'snack' or item.category\
-                    == 'other_food' or item.category == 'baked':
+            elif item.category in self.category_group[2]:
                 food_list.append(item_info)
-            else:
+            elif item.category in self.category_group[3]:
                 non_food_list.append(item_info)
         
         # bagging by group
