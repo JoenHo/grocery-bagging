@@ -96,7 +96,7 @@ class Bagger:
                     count = 0
 
                 # if possible to put in this bag
-                if bags[i][1] > item[0].volume and bags[i][2] > item[0].weight:
+                if bags[i][1] >= item[0].volume and bags[i][2] >= item[0].weight:
                     # place item into bag
                     bags[i][0].insert(0, item[0])
                     # reduce bag space
