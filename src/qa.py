@@ -40,7 +40,8 @@ class QA:
 
     def get_answer(self, question):
 
-        no_ans_list = ["Sorry, I didn't get you.", "Good question, but I don't know the answer.", "I don't have answer to you question."]
+        no_ans_list = ["Sorry, I didn't get you.", "Good question, but I don't know the answer.", "I don't have answer to you question.",
+        "Your guess is as good as mine.", "I am not the best person to answer that.", "It’s beyond me.", "Hmmm. I'm not sure if I understand the question.", "It’s a mystery to me."]
 
         # extract item names
         items = []
