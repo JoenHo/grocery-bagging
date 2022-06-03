@@ -1,0 +1,77 @@
+[
+    {
+        "type":"general",
+        "Q":"hello",
+        "A":"Hello!"
+    },
+    {
+        "type":"general",
+        "Q":"how are you",
+        "A":"Thanks for asking. I'm doing well."
+    },
+    {
+        "type":"<",
+        "Q":"[item_1] on top of [item_2]",
+        "A":"It is because [item_1] scores less than or equal to [item_2].\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"<",
+        "Q":"[item_1] on [item_2]",
+        "A":"It is because [item_1] scores less than or equal to [item_2].\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":">",
+        "Q":"[item_1] below [item_2]",
+        "A":"It is because [item_1] scores greater than or equal to [item_2].\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },  
+    {
+        "type":"no bag",
+        "Q":"[item_1] outside",
+        "A":"It is because [item_1] could not fit in a bag.\nHere is what I found:\n[item_1_info]"
+    },
+    {
+        "type":"no bag",
+        "Q":"did not put [item_1] in a bag",
+        "A":"It is because [item_1] could not fit in a bag.\nHere is what I found:\n[item_1_info]"
+    },
+    {
+        "type":"no bag",
+        "Q":"didn't put [item_1] in a bag",
+        "A":"It is because [item_1] could not fit in a bag.\nHere is what I found:\n[item_1_info]"
+    },
+    {
+        "type":"separate bag",
+        "Q":"[item_1] and [item_2] in separate bags",
+        "A":"It is because [item_1] and [item_2] might contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"separate bag",
+        "Q":"[item_1] and [item_2] in different bags",
+        "A":"It is because [item_1] and [item_2] might contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"separate bag",
+        "Q":"[item_1] and [item_2] are in separate bags",
+        "A":"It is because [item_1] and [item_2] might contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"separate bag",
+        "Q":"[item_1] and [item_2] are in different bags",
+        "A":"It is because [item_1] and [item_2] might contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"same bag",
+        "Q":"[item_1] and [item_2] in a same bag",
+        "A":"It is because [item_1] and [item_2] will not contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"same bag",
+        "Q":"[item_1] and [item_2] are in a same bag",
+        "A":"It is because [item_1] and [item_2] will not contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    },
+    {
+        "type":"same bag",
+        "Q":"put [item_1] and [item_2] together",
+        "A":"It is because [item_1] and [item_2] will not contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
+    }
+]
