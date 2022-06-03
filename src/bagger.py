@@ -2,7 +2,7 @@ from item import Item
 from typing import List
 
 # --- CONSTANT --- #
-BAG_VOLUME_CAPACITY = 17
+BAG_VOLUME_CAPACITY = 30
 BAG_WEIGHT_CAPACITY = 30
 
 W_WEIGHT = 0.5
@@ -51,17 +51,8 @@ class Bagger:
 
 
     def sorting_items(self, item_list):
-
-        print("Before Sort")
-        for item in item_list:
-            print(f"Name: {item[0].name} Points: {item[2]}")
-
         # sort item list by points in descending order
         item_list.sort(key=lambda x: x[2], reverse=True)
-
-        print(f"After Sort")
-        for item in item_list:
-            print(f"Name: {item[0].name} Points: {item[2]}")
 
     
     def estimate_num_bags(self, item_list):
@@ -123,35 +114,6 @@ class Bagger:
         self.bags += bags
 
 
-
-    def meat_seafood_bagging(self, meat_seafood_list):
-        print('\nStart bagging meat and seafood items')
-        for item in meat_seafood_list:
-            print(f"name: {item[0].name}")
-            print(f"quantity: {item[1]}")
-        
-
-
-    def frozen_bagging(self, frozen_list):
-        print('\nStart bagging frozen items')
-        for item in frozen_list:
-            print(f"name: {item[0].name}")
-            print(f"quantity: {item[1]}")
-
-
-    def food_bagging(self, food_list):
-        print('\nStart bagging food items')
-        for item in food_list:
-            print(f"name: {item[0].name}")
-            print(f"quantity: {item[1]}")
-
-    def non_food_bagging(self, non_food_list):
-        print('\nStart bagging non-food items')
-        for item in non_food_list:
-            print(f"name: {item[0].name}")
-            print(f"quantity: {item[1]}")
-
-
     def process_items(self, item_list, type):
         # sort item list
         self.sorting_items(item_list)
@@ -192,15 +154,6 @@ class Bagger:
         # bagging by group
         for group in [[food_list, "food"], [meat_seafood_list, "meat&seafood"], [frozen_list, "frozen"], [non_food_list, "non-food"]]:
             self.process_items(group[0], group[1])
-
-        # if len(meat_seafood_list):
-        #     self.meat_seafood_bagging(meat_seafood_list)
-        # if len(frozen_list):
-        #     self.frozen_bagging(frozen_list)
-        # if len(food_list):
-        #     self.food_bagging(food_list)
-        # if len(non_food_list):
-        #     self.non_food_bagging(non_food_list)
 
 
     def start_bagging(self, op):
