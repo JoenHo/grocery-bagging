@@ -6,6 +6,16 @@
     },
     {
         "type":"general",
+        "Q":"hi",
+        "A":"Hi there!"
+    },
+    {
+        "type":"general",
+        "Q":"how are you",
+        "A":"Thanks for asking. I'm doing well."
+    },
+    {
+        "type":"general",
         "Q":"how are you",
         "A":"Thanks for asking. I'm doing well."
     },
@@ -71,7 +81,7 @@
     },
     {
         "type":"same bag",
-        "Q":"put [item_1] and [item_2] together",
+        "Q":"[item_1] and [item_2] together",
         "A":"It is because [item_1] and [item_2] will not contaminate each other.\nHere is what I found:\n[item_1_info]\n[item_2_info]"
     }
 ]
