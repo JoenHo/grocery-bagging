@@ -52,10 +52,10 @@ def get_item_table(items):
 
 
 def get_selected_items(items):
-    table = Table(title="SELECTED ITEMS",title_style="bold reverse pale_green3", min_width=35)
+    table = Table(title="SELECTED ITEMS",title_style="bold reverse pale_green3", min_width=40)
     table.add_column("#", header_style="bold yellow", justify="center", style="yellow")
     table.add_column("Item Name", header_style="bold", justify="left")
-    table.add_column("Quantity", header_style="bold", justify="left")
+    table.add_column("Quantity", header_style="bold", justify="center")
     table.box = box.MINIMAL_HEAVY_HEAD
 
     item : Bagger.selected
@@ -66,7 +66,7 @@ def get_selected_items(items):
         table.add_row(item_id, name, quantity)
     table.row_styles="b"
     table.caption_style = "bold"
-    table.caption = "You have selected [cyan]" + str(len(items)) + "[/cyan] items!"
+    table.caption = "You have selected [cyan]" + str(len(items)) + "[/cyan] different items!"
 
     return table
 
@@ -275,7 +275,7 @@ def display_result(bg:Bagger):
 
     # display result
     console.print(Columns(format_bags(bg)), justify="center")
-    console.print('\nEnter 0 to go back')
+    console.print('\nEnter 0 to go back\nEnter [b][cyan]FAQ[/cyan][/b] to see list of FAQ')
 
     # Q&A
     while(True):
@@ -322,8 +322,9 @@ def main():
     # Create Bagger Instance
     bg = Bagger(items)
 
-    # mock selected for testing
-    mock_selected = [[8,3],[13,2],[15,1],[23,1],[17,1],[3,3],[20,2],[18,1],[19,3],[21,1],[14,2],[5,1],[1,5],[2,4],[6,1],[7,2],[9,1],[21,1],[22,2],[12,1],[16,4],[25,1],[18,2]]
+    # mock selected for testing1
+    mock_selected = [[1,3],[2,3],[3,1],[4,1],[5,1],[6,1],[7,2],[9,1],[10,2],[11,1],[12,1],[13,1],[14,1],[15,1],[17,3],[18,1],[20,1],[21,1],[23,1],[26,2],[27,1],[28,1],[30,1],[31,1],[33,1],[34,1],[35,1],[36,1],[36,1],[38,1],[39,1],[40,1],[43,1],[45,2]]
+    # mock_selected = [[8,3],[13,2],[15,1],[23,1],[17,1],[3,3],[20,2],[18,1],[19,3],[21,1],[14,2],[5,1],[1,5],[2,4],[6,1],[7,2],[9,1],[21,1],[22,2],[12,1],[16,4],[25,1],[18,2]]
     # mock_selected = [[3,3], [10,2]]
     for item in mock_selected:
         bg.add_to_selected(next((x for x in items if x.id == item[0]), None), item[1])
