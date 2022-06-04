@@ -41,7 +41,7 @@
     },
     {
         "id": 5,
-        "name": "Salmon Fillet",
+        "name": "Salmon",
         "category": "seafood",
         "container": "foam",
         "volume": 2,
@@ -64,24 +64,24 @@
         "name": "Pizza",
         "category": "frozen",
         "container": "carton",
-        "volume": 3,
+        "volume": 4,
         "weight": 2,
         "rigidity": 4,
         "image": ""
     },
     {
         "id": 8,
-        "name": "Coke - 350ml",
+        "name": "Coke",
         "category": "beverage",
         "container": "metal",
-        "volume": 1,
-        "weight": 1,
+        "volume": 8,
+        "weight": 8,
         "rigidity": 5,
         "image": ""
     },
     {
         "id": 9,
-        "name": "Dinner Roles - 6pc",
+        "name": "Dinner Roles",
         "category": "baked",
         "container": "plastic",
         "volume": 4,
@@ -95,13 +95,13 @@
         "category": "snack",
         "container": "plastic",
         "volume": 3,
-        "weight": 1,
+        "weight": 0.3,
         "rigidity": 1,
         "image": ""
     },
     {
         "id": 11,
-        "name": "Olive Oil - 700ml",
+        "name": "Olive Oil",
         "category": "other_food",
         "container": "glass",
         "volume": 5,
@@ -131,11 +131,11 @@
     },
     {
         "id": 14,
-        "name": "Toilet Paper - 12 rolls",
+        "name": "Toilet Paper",
         "category": "cleaning",
         "container": "plastic",
-        "volume": 40,
-        "weight": 5,
+        "volume": 50,
+        "weight": 10,
         "rigidity": 5,
         "image": ""
     },
@@ -151,11 +151,11 @@
     },
     {
         "id": 16,
-        "name": "Potatoes",
+        "name": "Potato",
         "category": "vegetable",
         "container": "none",
-        "volume": 1.5,
-        "weight": 1.5,
+        "volume": 0.9,
+        "weight": 0.9,
         "rigidity": 5,
         "image": ""
     },
@@ -171,11 +171,11 @@
     },
     {
         "id": 18,
-        "name": "Bread",
+        "name": "Baguette",
         "category": "baked",
-        "container": "plastic",
+        "container": "paper",
         "volume": 4,
-        "weight": 0.5,
+        "weight": 1,
         "rigidity": 1,
         "image": ""
     },
@@ -247,6 +247,216 @@
         "volume": 0.5,
         "weight": 0.3,
         "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 26,
+        "name": "Banana",
+        "category": "fruit",
+        "container": "none",
+        "volume": 0.8,
+        "weight": 0.8,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 27,
+        "name": "Spinach",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 1.5,
+        "weight": 0.3,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 28,
+        "name": "Rice",
+        "category": "other_food",
+        "container": "plastic",
+        "volume": 40,
+        "weight": 40,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 29,
+        "name": "Detergent",
+        "category": "kitchen",
+        "container": "plastic",
+        "volume": 7,
+        "weight": 7,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 30,
+        "name": "Eggs",
+        "category": "dairy",
+        "container": "carton",
+        "volume": 3,
+        "weight": 2,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 31,
+        "name": "Mozzarella",
+        "category": "dairy",
+        "container": "plastic",
+        "volume": 1.5,
+        "weight": 1.5,
+        "rigidity": 1,
+        "image": ""
+    },
+    {
+        "id": 32,
+        "name": "Toothpaste",
+        "category": "other_nonfood",
+        "container": "carton",
+        "volume": 0.7,
+        "weight": 0.5,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 33,
+        "name": "Lemonade",
+        "category": "beverage",
+        "container": "plastic",
+        "volume": 8,
+        "weight": 8,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 34,
+        "name": "Shrimp",
+        "category": "seafood",
+        "container": "foam",
+        "volume": 1.8,
+        "weight": 1.8,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 35,
+        "name": "Fried Chicken",
+        "category": "frozen",
+        "container": "plastic",
+        "volume": 5,
+        "weight": 3,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 36,
+        "name": "Flour",
+        "category": "other_food",
+        "container": "paper",
+        "volume": 8,
+        "weight": 8,
+        "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 37,
+        "name": "Fried Rice",
+        "category": "frozen",
+        "container": "plastic",
+        "volume": 5,
+        "weight": 2,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 38,
+        "name": "Thai Curry",
+        "category": "frozen",
+        "container": "carton",
+        "volume": 2,
+        "weight": 1,
+        "rigidity": 3,
+        "image": ""
+    },
+    {
+        "id": 39,
+        "name": "Fries",
+        "category": "frozen",
+        "container": "plastic",
+        "volume": 5,
+        "weight": 2,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 40,
+        "name": "Cat litter",
+        "category": "other_nonfood",
+        "container": "plastic",
+        "volume": 50,
+        "weight": 60,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 41,
+        "name": "Avocado",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 1,
+        "weight": 1,
+        "rigidity": 3,
+        "image": ""
+    },
+    {
+        "id": 42,
+        "name": "Salad Bowl",
+        "category": "vegetable",
+        "container": "plastic",
+        "volume": 3,
+        "weight": 1.5,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 42,
+        "name": "Carrot",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 0.7,
+        "weight": 0.7,
+        "rigidity": 4,
+        "image": ""
+    },
+    {
+        "id": 43,
+        "name": "Eggplant",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 1.5,
+        "weight": 0.7,
+        "rigidity": 2,
+        "image": ""
+    },
+    {
+        "id": 44,
+        "name": "Pumpkin",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 4,
+        "weight": 4,
+        "rigidity": 5,
+        "image": ""
+    },
+    {
+        "id": 45,
+        "name": "lemon",
+        "category": "vegetable",
+        "container": "none",
+        "volume": 0.7,
+        "weight": 0.5,
+        "rigidity": 1,
         "image": ""
     }
 ]
