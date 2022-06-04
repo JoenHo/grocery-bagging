@@ -5,8 +5,8 @@ from typing import List
 BAG_VOLUME_CAPACITY = 30
 BAG_WEIGHT_CAPACITY = 30
 
-W_WEIGHT = 0.5
-W_VOLUME = 0.5
+W_WEIGHT = 0.6
+W_VOLUME = 0.2
 W_RIGIDITY = 0.8
 W_CONTAINER = 0.3
 # ---------------- #
