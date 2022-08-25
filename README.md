@@ -1,4 +1,4 @@
-<center><b><h2>Knowlege-Based Grocery Bagging System</h2></b></center>
+<center><b><h2>Knowledge-Based Grocery Bagging System</h2></b></center>
 
 <b><h3>Instruction</h3></b>
 
