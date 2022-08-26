@@ -17,7 +17,7 @@ Separate items based on their food type. There are four types of separation: Mea
 
 <b> 2) Estimating the Number of Bags </b> <br/>
 Calculate the estimated bags for items based on the following calculation: <br/>
-<code> Number of Bags = Max (⌈ Total Volume / Bag Volume Capacity ⌉, ⌈ Total Weight / Bag Weight Capacity ⌉) </code> <br/><br/>
+<code> Number of Bags = Max(⌈ Total Volume / Bag Volume Capacity ⌉, ⌈ Total Weight / Bag Weight Capacity ⌉) </code> <br/><br/>
 
 <b> 3) Sorting Items: <br/>
 Sort items according to the item points to heuristicly approximate the order in which humans would have used. Item points are calculated by taking the weighted sum of item properties: <br/>
@@ -36,5 +36,14 @@ Program has stored pair of questions and answers in QA bank. When user asks ques
 ---
 <b><h3>Sample Output</h3></b>
 <b> 1) Selecting Items </b> <br/>
+<p align="center">
+  <img src="media/select-items.gif" alt="select-items" />
+</p>
 <b> 2) Bagging Items </b> <br/>
+<p align="center">
+  <img src="media/bagging.gif" alt="bagging" />
+</p>
 <b> 3) Asking questions </b> <br/>
+<p align="center">
+  <img src="media/ask-questions.gif" alt="ask-questions" />
+</p>
