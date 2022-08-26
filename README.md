@@ -33,3 +33,8 @@ The idea of distribute weight evenly among bags is to avoid some bags are way he
 
 Program has stored pair of questions and answers in QA bank. When user asks question, the program will do a mattern maching to find the most appropriate answer from QA bank as response.
 
+---
+<b><h3>Sample Output</h3></b>
+<b> 1) Selecting Items </b> <br/>
+<b> 2) Bagging Items </b> <br/>
+<b> 3) Asking questions </b> <br/>
